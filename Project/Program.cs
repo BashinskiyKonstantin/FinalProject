@@ -10,12 +10,10 @@
 // ["Russia", "Denmark", "Kazan"] -> []
 
 
-string[] firstArray = new string[6] { "hello", "2", "world", ":-)", "computer science", "-2" };
-string[] secondArray = new string[firstArray.Length];
+string[] array = new string[6] { "hello", "2", "world", ":-)", "computer science", "-2" };
 
 void PrintArray(string[] array)
 {
-
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
@@ -23,27 +21,30 @@ void PrintArray(string[] array)
         else Console.Write($"{array[i]}");
     }
     Console.WriteLine("]");
-
 }
 
-void Changearray(string[] firstArray, string[] secondArray)
+
+void Changearray(string[] array)
 {
-    int count = 0;
-    for (int i = 0; i < firstArray.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        if (firstArray[i].Length <= 3)
-        {
-            secondArray[count] = firstArray[i];
-            count++;
-        }
+        if (array[i].Length > 3) array[i] = "delete";
     }
 }
 
+void PrintChangeArray(string[] array)
+{
+    Console.Write("[");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i < array.Length - 1 && array[i].Length <= 3) Console.Write($"{array[i]}, ");
+        else if (array[i].Length <= 3) Console.Write($"{array[i]}");
+    }
+    Console.WriteLine("]");
+}
 
 
-
-
-PrintArray(firstArray);
+PrintArray(array);
 Console.WriteLine("Результат нового массива: ");
-Changearray(firstArray, secondArray);
-PrintArray(secondArray);
+Changearray(array);
+PrintChangeArray(array);

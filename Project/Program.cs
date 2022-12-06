@@ -10,7 +10,7 @@ void PrintArray(string[] array)
     Console.WriteLine("]");
 }
 
-void ChangeArray(string[] array)    
+void ChangeArray(string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {

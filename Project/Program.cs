@@ -17,34 +17,22 @@ void PrintArray(string[] array)
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
-        else Console.Write($"{array[i]}");
+        Console.Write($"{array[i]} ");
     }
     Console.WriteLine("]");
 }
 
-
-void Changearray(string[] array)
+void ChangeArray(string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i].Length > 3) array[i] = "delete";
+        if (array[i].Length > 3) array[i] = string.Empty;
     }
-}
-
-void PrintChangeArray(string[] array)
-{
-    Console.Write("[");
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (i < array.Length - 1 && array[i].Length <= 3) Console.Write($"{array[i]}, ");
-        else if (array[i].Length <= 3) Console.Write($"{array[i]}");
-    }
-    Console.WriteLine("]");
 }
 
 
 PrintArray(array);
-Console.WriteLine("Результат нового массива: ");
-Changearray(array);
-PrintChangeArray(array);
+Console.Write("Результат нового массива: ");
+ChangeArray(array);
+PrintArray(array);
+
